@@ -1,0 +1,39 @@
+public void parse() throws IOException {
+		this.KeyWords = new LinkedList();
+
+		this.charArray = new LinkedList();
+
+		int ind = 0;
+
+		if (this.test.exists()) {
+
+			while (true) {
+
+				try {
+					String content = Files.readAllLines(this.test.toPath()).get(ind);
+
+					this.KeyWords.newNode(content);
+
+					char[] prent = content.toCharArray();
+
+					for (int i = 0; i < prent.length; i++) {
+
+						charArray.newNode(Character.toString(prent[i]));
+
+					}
+
+					ind++;
+
+				} catch (Exception e) {
+
+					System.out.println("Read");
+					System.out.println();
+					return;
+
+				}
+
+			}
+
+		}
+
+	}
