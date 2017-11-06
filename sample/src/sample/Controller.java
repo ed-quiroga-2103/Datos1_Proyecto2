@@ -14,6 +14,7 @@ import java.io.IOException;
 public class Controller {
     String filepath;
     File file;
+    int counter=0;
 
     @FXML
     Canvas canvas=new Canvas();
@@ -32,9 +33,9 @@ public class Controller {
     @FXML
     void run()throws IOException {
             CodeParser code=new CodeParser("C:\\Users\\karol_000\\Documents\\test.txt");
-                System.out.println(code.finalList.getNode(1).getKey()+"\n"+code.finalList.getNode(1).getArg());
+            text.setText(code.finalList.getNode(counter).getKey()+"\n"+code.finalList.getNode(counter).getArg());
 
-            text.setText(filepath);
+
     }
     @FXML
     public void close(){
@@ -44,6 +45,11 @@ public class Controller {
     public void about(){
         String info="Eclipse Debuger: Herramienta visualiza diagrama de flujo del codigo, oprima file/Open... \n para abrir el archivo y luego selecciones Run/Run file";
         text.setText(info);
+    }
+    @FXML
+    public void stepinto()throws IOException{
+        counter+=1;
+        run();
     }
 
 }
